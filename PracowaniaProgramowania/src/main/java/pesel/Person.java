@@ -1,11 +1,14 @@
 package pesel;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.CharBuffer;
 import java.util.stream.IntStream;
 
 public class Person {
+   @Getter
    private String city;
    private String pesel;
    private String firstName;
@@ -54,7 +57,7 @@ public class Person {
 
       final Person other = (Person) obj;
 
-      if (this.pesel != other.pesel) {
+      if (!this.pesel.equals(other.pesel)) {
          return false;
       }
 
@@ -63,7 +66,7 @@ public class Person {
 
    @Override
    public String toString() {
-      return city + pesel + firstName + lastName + "\n";
+      return city + " " + pesel + " " + firstName + " " + lastName + "\n";
    }
 
 }
