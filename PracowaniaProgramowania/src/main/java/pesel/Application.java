@@ -35,7 +35,17 @@ public class Application {
             .withSchedule(cronSchedule("30 0/1 * * * ? "))
             .build();
 
+            JobDetail job2 = newJob(TimeLeft.class)
+                    .withIdentity("job2", "group2")
+                    .build();
+
+            Trigger trigger2 = newTrigger()
+                    .withIdentity("trigger2", "group2")
+                    .withSchedule(cronSchedule("0 0/1 * * * ? "))
+                    .build();
+
             sched.scheduleJob(job, trigger);
+            sched.scheduleJob(job2, trigger2);
             sched.start();
 
         } catch (SchedulerException se) {
