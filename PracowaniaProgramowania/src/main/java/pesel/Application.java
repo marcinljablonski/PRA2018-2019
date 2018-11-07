@@ -1,17 +1,14 @@
 package pesel;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
-import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 
@@ -21,7 +18,6 @@ public class Application {
         List<Person> people;
         people = new ArrayList<>();
         cli = new CLI(people);
-//        cli.run();
         try {
             SchedulerFactory sf = new StdSchedulerFactory();
             Scheduler sched = sf.getScheduler();
@@ -57,7 +53,7 @@ public class Application {
 
     public static void main(String ... args) {
         try {
-            FileIO.truncate();
+            FileHandling.truncate();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 @AllArgsConstructor
 public class CLI {

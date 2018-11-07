@@ -3,7 +3,6 @@ package pesel;
 import org.quartz.*;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,13 +17,13 @@ public class SaveToFile implements org.quartz.Job {
           }
 
           try {
-              FileIO.truncate();
+              FileHandling.truncate();
           } catch (IOException e) {
               throw new JobExecutionException();
           }
           people.stream().sorted(Comparator.comparing(Person::getCity)).forEach(p -> {
               try {
-                  FileIO.write(p.toString());
+                  FileHandling.write(p.toString());
               } catch (IOException e) {
                   e.printStackTrace();
               }

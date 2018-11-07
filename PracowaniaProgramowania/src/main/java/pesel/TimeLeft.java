@@ -11,9 +11,7 @@ import java.util.*;
 public class TimeLeft implements org.quartz.Job {
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        int hours = LocalDateTime.now().getHour();
-        int minutes = LocalDateTime.now().getMinute();
-        int minutesAfterMidnight = 60 * hours + minutes;
+        int minutesAfterMidnight = getMinutesAfterMidnight();
 
         List<Ending> endings = new ArrayList<>();
         endings.add(new Ending(true, 585));
@@ -33,7 +31,7 @@ public class TimeLeft implements org.quartz.Job {
         } else {
             Optional<Ending> nearest = endings.stream().filter(x -> x.getEndingTime() > minutesAfterMidnight).findFirst();
             int difference = nearest.get().getEndingTime() - minutesAfterMidnight;
-            boolean type = nearest.get().isClassEnding();
+            boolean type = nearest.get().isClassesEnding();
             System.out.println("Zostało " + difference + " minut do końca " + (type? "zajęć" : "przerwy"));
         }
 
@@ -41,8 +39,14 @@ public class TimeLeft implements org.quartz.Job {
     @AllArgsConstructor
     private class Ending {
        @Getter
-       boolean classEnding;
+       boolean classesEnding;
        @Getter
        int endingTime;
+    }
+
+    protected int getMinutesAfterMidnight() {
+        int hours = LocalDateTime.now().getHour();
+        int minutes = LocalDateTime.now().getMinute();
+        return 60 * hours + minutes;
     }
 }

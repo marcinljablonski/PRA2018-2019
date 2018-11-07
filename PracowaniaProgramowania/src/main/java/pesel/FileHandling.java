@@ -1,13 +1,12 @@
 package pesel;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class FileIO {
+public class FileHandling {
    private static final String FILE_NAME = "odp.txt";
    private static final Path PATH = Paths.get(FILE_NAME);
 
