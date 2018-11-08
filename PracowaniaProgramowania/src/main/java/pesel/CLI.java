@@ -14,7 +14,7 @@ public class CLI {
         while (true) {
             String city;
             String personalias;
-            System.out.println("Podaj Miasto");
+            System.out.println("Podaj Miasto. Aby zakończyć wciśnij C-C lub wpisz .exit");
             city = s.next();
             if (city.equals(".exit")) {
                 return;
