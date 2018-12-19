@@ -1,4 +1,4 @@
-package com.pracownia.spring.entities;
+package xd.marcin.hotel.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;

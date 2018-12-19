@@ -1,12 +1,10 @@
-package com.pracownia.spring.services;
+package xd.marcin.hotel.services;
 
-import com.pracownia.spring.entities.Product;
-import com.pracownia.spring.repositories.ProductRepository;
+import xd.marcin.hotel.entities.Product;
+import xd.marcin.hotel.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 /**
  * Product service implement.

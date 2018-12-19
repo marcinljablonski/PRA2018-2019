@@ -1,10 +1,9 @@
-package com.pracownia.spring.repositories;
+package xd.marcin.hotel.repositories;
 
-import com.pracownia.spring.entities.Product;
+import xd.marcin.hotel.entities.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.stereotype.Repository;
 
 public interface ProductRepository extends CrudRepository<Product, Integer>, PagingAndSortingRepository<Product, Integer> {
 

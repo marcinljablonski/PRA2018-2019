@@ -1,7 +1,6 @@
-package com.pracownia.spring.services;
+package xd.marcin.hotel.services;
 
-import com.pracownia.spring.entities.Product;
-import java.util.Optional;
+import xd.marcin.hotel.entities.Product;
 
 public interface ProductService {
 

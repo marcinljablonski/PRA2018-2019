@@ -1,7 +1,6 @@
-package com.pracownia.spring.services;
+package xd.marcin.hotel.services;
 
-import com.pracownia.spring.entities.Product;
-import com.pracownia.spring.entities.Seller;
+import xd.marcin.hotel.entities.Seller;
 
 import java.util.List;
 

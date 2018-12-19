@@ -1,7 +1,7 @@
-package com.pracownia.spring.repositories;
+package xd.marcin.hotel.repositories;
 
-import com.pracownia.spring.entities.Product;
-import com.pracownia.spring.entities.Seller;
+import xd.marcin.hotel.entities.Product;
+import xd.marcin.hotel.entities.Seller;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

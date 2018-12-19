@@ -1,13 +1,11 @@
-package com.pracownia.spring.services;
+package xd.marcin.hotel.services;
 
-import com.pracownia.spring.entities.Product;
-import com.pracownia.spring.entities.Seller;
-import com.pracownia.spring.repositories.ProductRepository;
-import com.pracownia.spring.repositories.SellerRepository;
+import xd.marcin.hotel.entities.Product;
+import xd.marcin.hotel.entities.Seller;
+import xd.marcin.hotel.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service

@@ -1,4 +1,4 @@
-package com.pracownia.spring;
+package xd.marcin.hotel;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
