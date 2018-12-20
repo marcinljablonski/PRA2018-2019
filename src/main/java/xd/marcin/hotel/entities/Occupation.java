@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class Occupation {
     @Id @GeneratedValue

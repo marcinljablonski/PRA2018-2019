@@ -16,7 +16,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,
     property="refId", scope=Client.class)
 public class Client {

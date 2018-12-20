@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Reservation {
     @Id @GeneratedValue
     @Column

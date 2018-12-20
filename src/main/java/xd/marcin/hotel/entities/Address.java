@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Address
 {
     @Id

@@ -14,5 +14,5 @@ public interface ReservationRepository extends CrudRepository<Reservation, Integ
 //    Integer countProductsById(Integer id);
 
     @Query("select r from Reservation r join r.client c where c.lastName = ?1")
-    List<Reservation> findResevationsByLastName(String lastName);
+    List<Reservation> findsByLastName(String lastName);
 }
