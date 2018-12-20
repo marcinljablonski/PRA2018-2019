@@ -1,6 +1,9 @@
 package xd.marcin.hotel.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.persistence.Id;
 import java.time.ZonedDateTime;
@@ -8,10 +11,9 @@ import java.time.ZonedDateTime;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Occupation {
-
-    public Occupation() {};
-
     @Id @GeneratedValue
     @Column
     private int id;
