@@ -1,22 +1,18 @@
 package xd.marcin.hotel.services;
 
-import xd.marcin.hotel.entities.Seller;
+import xd.marcin.hotel.entities.Reservation;
 
 import java.util.List;
 
 public interface ReservationService {
+
+//    Iterable<Reservation> listAllReservations();
 //
-//    Iterable<Seller> listAllSellers();
+//    Reservation getReservationById(Integer id);
 //
-//    Seller getSellerById(Integer id);
+//    Reservation saveReservation(Reservation reservation);
 //
-//    Seller saveSeller(Seller seller);
+//    void deleteReservation(Integer id);
 //
-//    void deleteSeller(Integer id);
-//
-//    List<Seller> getByName(String name);
-//
-//    Integer getNumberOfProducts(Integer id);
-//
-//    Seller getBestSeller();
+//    List<Reservation> getByPESEL(String pesel);
 }

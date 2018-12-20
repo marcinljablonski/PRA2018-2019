@@ -9,7 +9,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
-//
+
 //    @Override
 //    public Iterable<Seller> listAllSellers() {
 //        return sellerRepository.findAll();
@@ -31,32 +31,9 @@ public class ReservationServiceImpl implements ReservationService {
 //    }
 //
 //    @Override
-//    public List<Seller> getByName(String name) {
-//        return sellerRepository.findByName(name);
-//    }
-//
-//    @Override
-//    public Integer getNumberOfProducts(Integer id) {
-//        return sellerRepository.countProductsById(id);
-//    }
-//
-//    @Override
-//    public Seller getBestSeller() {
-//        double max = 0;
-//        int maxId = 0;
-//        Iterable<Seller> sellers = sellerRepository.findAll();
-//        for(Seller s : sellers) {
-//            double sum = 0.0;
-//            List<Product> products = sellerRepository.getProductsById(s.getId());
-//            for(Product pid : products) {
-//                sum += pid.getPrice().doubleValue();
-//            }
-//            if (sum > max) {
-//                max = sum;
-//                maxId = s.getId();
-//            }
-//        }
-//        return sellerRepository.findOne(maxId);
+//    public List<> getByPESEL(String pesel) {
+//       reservationRepository.fin
+//        return reservationRepository.findByName(name);
 //    }
 
 }
