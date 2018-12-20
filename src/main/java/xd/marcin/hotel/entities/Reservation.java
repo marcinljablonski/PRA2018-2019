@@ -17,14 +17,15 @@ import java.time.ZonedDateTime;
 public class Reservation {
     @Id @GeneratedValue
     @Column
-    private int id;
+    private Integer id;
 
     @Column
-    private int beds;
+    private Integer beds;
 
     @Column
     private String comments;
 
+    @JoinColumn
     @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
 

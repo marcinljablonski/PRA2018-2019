@@ -9,6 +9,6 @@ public interface ClientRepository extends CrudRepository<Client, Integer>, Pagin
 
     Client findById(String clientId);
 
-    @Query("select count(*) from client c where c.id = ?1")
+    @Query("select count(*) from Client c where c.id = ?1")
     Integer checkIfExist(Integer id);
 }

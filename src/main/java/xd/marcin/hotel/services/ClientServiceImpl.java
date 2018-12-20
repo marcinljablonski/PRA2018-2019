@@ -20,25 +20,20 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findAll(new PageRequest(pageNr,howManyOnPage));
     }
 
-//    @Override
-//    public Iterable<Product> listAllProducts() {
-//        return productRepository.findAll();
-//    }
-
-//    @Override
-//    public Product getProductById(Integer id) {
-//        return productRepository.findOne(id);
-//    }
+    @Override
+    public Client getClientById(Integer id) {
+        return clientRepository.findOne(id);
+    }
 
     @Override
     public Client saveClient(Client client) {
         return clientRepository.save(client);
     }
 
-//    @Override
-//    public void deleteProduct(Integer id) {
-//        productRepository.delete(id);
-//    }
+    @Override
+    public void deleteClient(Integer id) {
+        clientRepository.delete(id);
+    }
 
     @Override
     public Boolean checkIfExist(Integer id) {

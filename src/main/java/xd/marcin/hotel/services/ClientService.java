@@ -4,16 +4,15 @@ import xd.marcin.hotel.entities.Client;
 
 public interface ClientService {
 
-//    Iterable<Client> listAllClients();
 
-//    Product getProductById(Integer id);
+    Client getClientById(Integer id);
 
     Client saveClient(Client client);
 
-//    void deleteProduct(Integer id);
+    void deleteClient(Integer id);
 
     Boolean checkIfExist(Integer id);
 
-    public Iterable<Client> listAllClientsPaging(Integer pageNr, Integer howManyOnPage);
+    Iterable<Client> listAllClientsPaging(Integer pageNr, Integer howManyOnPage);
 
 }

@@ -43,7 +43,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private Set<Reservation> reservations = new HashSet<Reservation>();
-//
-//    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-//    private Set<Occupation> occupations = new HashSet<Occupation>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
+    private Set<Occupation> occupations = new HashSet<Occupation>();
 }
