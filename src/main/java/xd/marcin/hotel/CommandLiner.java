@@ -1,6 +1,8 @@
 package xd.marcin.hotel;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import jdk.internal.org.objectweb.asm.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,11 +13,8 @@ import xd.marcin.hotel.services.ReservationService;
 import xd.marcin.hotel.services.RoomService;
 
 import java.io.File;
-import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 @Component
 public class CommandLiner implements CommandLineRunner {
   @Autowired
@@ -44,8 +43,10 @@ public class CommandLiner implements CommandLineRunner {
 //    Reservation reservation1 = new Reservation();
 //    Occupation occupation1 = new Occupation();
 //    Room room1 = new Room();
-//    ZonedDateTime dateTime1 = ZonedDateTime.parse("2007-12-03T10:15:30+01:00[Europe/Paris]");
-//    ZonedDateTime dateTime2 = ZonedDateTime.parse("2009-12-03T10:15:30+01:00[Europe/Paris]");
+//    Date dateTime1 = new Date();
+//    dateTime1.setTime(1542776005000L);
+//    Date dateTime2 = new Date();
+//    dateTime2.setTime(1545368005000L);
 //    room1.setBeds(2);
 //    room1.setComment("XD");
 //    reservation1.setBeds(2);
@@ -75,7 +76,7 @@ public class CommandLiner implements CommandLineRunner {
 ////    roomService.saveRoom(room1);
 //    reservationService.saveReservation(reservation1);
 //    occupationService.saveOccupation(occupation1);
-
+//
     Iterable reservations = new LinkedList<>();
     Iterable occupations = new LinkedList<>();
     Iterable rooms = new LinkedList<>();
@@ -85,13 +86,23 @@ public class CommandLiner implements CommandLineRunner {
     reservations = reservationService.listAllReservations();
     occupations = occupationService.listAllOccupations();
 
-    ObjectMapper mapper = config.getMapper();
-    mapper.writeValue(new File("occupations.json"), occupations);
+    ObjectMapper jmapper = config.getJSONmapper();
+    jmapper.writeValue(new File("occupations.json"), occupations);
 
-
+    XmlMapper xmlMapper = config.getXMLmapper();
+    xmlMapper.writeValue(new File("reservatins.xml"), reservations);
     //TODO w testach
     //Object to JSON in String
 //    String jsonInString = mapper.writeValueAsString(obj);
+
+    List<Reservation> reservations2 = new LinkedList<>();
+    List<Occupation> occupations2 = new LinkedList<>();
+    List<Room> rooms2 = new LinkedList<>();
+    List<Client> clients2 = new LinkedList<>();
+
+    reservations2 = xmlMapper.readValue(new File("reservations.xml", new TypeReference<List<Reservation>>(){});
+    occupations2 = jmapper.readValue(new File("occupations.json"), new TypeReference<List<Occupation>>(){});
+
 
   }
 

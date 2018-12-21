@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 
 @Entity
@@ -25,13 +26,12 @@ public class Reservation {
     @Column
     private String comments;
 
-//    @JoinColumn
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Client client;
 
     @Column
-    private ZonedDateTime fromDate;
+    private Date fromDate;
 
     @Column
-    private ZonedDateTime toDate;
+    private Date toDate;
 }
