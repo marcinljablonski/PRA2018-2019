@@ -10,6 +10,8 @@ public interface OccupationService {
 
     Occupation saveOccupation(Occupation occupation);
 
+    void saveManyOccupations(Iterable<Occupation> occupations);
+
     void deleteOccupation(Integer id);
 
 }

@@ -17,7 +17,7 @@ public class Address
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private int id;
+    private Integer id;
 
     @Column
     String street;

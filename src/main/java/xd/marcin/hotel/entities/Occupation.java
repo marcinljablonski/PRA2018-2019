@@ -18,10 +18,10 @@ public class Occupation {
     @Column
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     private Client client;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name="room_ID", referencedColumnName = "id")
     Room room;
 

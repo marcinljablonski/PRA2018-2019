@@ -12,6 +12,8 @@ public interface ReservationService {
 
     Reservation saveReservation(Reservation reservation);
 
+    void saveManyReservations(Iterable<Reservation> reservations);
+
     void deleteReservation(Integer id);
 
     List<Reservation> getByLastName(String lastName);

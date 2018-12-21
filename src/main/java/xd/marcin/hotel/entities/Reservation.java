@@ -26,7 +26,7 @@ public class Reservation {
     @Column
     private String comments;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     private Client client;
 
     @Column

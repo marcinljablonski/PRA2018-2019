@@ -37,7 +37,7 @@ public class Client {
     @Column
     private String email;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name="Address_ID", referencedColumnName = "id")
     Address address;
 
