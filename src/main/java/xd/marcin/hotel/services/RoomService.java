@@ -4,6 +4,7 @@ import xd.marcin.hotel.entities.Room;
 
 public interface RoomService {
 
+    Iterable<Room> listAllRooms();
 
     Room getRoomById(Integer id);
 

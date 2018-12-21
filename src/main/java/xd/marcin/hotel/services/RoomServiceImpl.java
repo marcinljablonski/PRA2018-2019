@@ -12,6 +12,11 @@ public class RoomServiceImpl implements RoomService {
     private RoomRepository roomRepository;
 
     @Override
+    public Iterable<Room> listAllRooms() {
+        return roomRepository.findAll();
+    }
+
+    @Override
     public Room getRoomById(Integer id) {
         return roomRepository.findOne(id);
     }

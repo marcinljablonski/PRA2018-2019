@@ -16,6 +16,11 @@ public class ClientServiceImpl implements ClientService {
     private ClientRepository clientRepository;
 
     @Override
+    public Iterable<Client> listAllClients() {
+        return clientRepository.findAll();
+    }
+
+    @Override
     public Iterable<Client> listAllClientsPaging(Integer pageNr, Integer howManyOnPage) {
         return clientRepository.findAll(new PageRequest(pageNr,howManyOnPage));
     }

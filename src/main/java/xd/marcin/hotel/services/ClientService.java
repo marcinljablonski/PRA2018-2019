@@ -4,6 +4,7 @@ import xd.marcin.hotel.entities.Client;
 
 public interface ClientService {
 
+    Iterable<Client> listAllClients();
 
     Client getClientById(Integer id);
 
