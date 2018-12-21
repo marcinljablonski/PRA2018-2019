@@ -18,7 +18,6 @@ public class Occupation {
     @Column
     private int id;
 
-    @JoinColumn
     @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
 

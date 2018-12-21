@@ -3,13 +3,11 @@ package xd.marcin.hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import xd.marcin.hotel.entities.Address;
-import xd.marcin.hotel.entities.Client;
-import xd.marcin.hotel.entities.Occupation;
-import xd.marcin.hotel.entities.Reservation;
+import xd.marcin.hotel.entities.*;
 import xd.marcin.hotel.services.ClientService;
+import xd.marcin.hotel.services.OccupationService;
 import xd.marcin.hotel.services.ReservationService;
-import xd.marcin.hotel.services.ReservationServiceImpl;
+import xd.marcin.hotel.services.RoomService;
 
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -23,6 +21,12 @@ public class CommandLiner implements CommandLineRunner {
   @Autowired
   ReservationService reservationService;
 
+  @Autowired
+  RoomService roomService;
+
+  @Autowired
+  OccupationService occupationService;
+
   @Override
   public void run(String ...args) throws Exception {
     System.out.println("Start");
@@ -33,8 +37,11 @@ public class CommandLiner implements CommandLineRunner {
     Set<Occupation> occSet = new HashSet<>();
     Reservation reservation1 = new Reservation();
     Occupation occupation1 = new Occupation();
+    Room room1 = new Room();
     ZonedDateTime dateTime1 = ZonedDateTime.parse("2007-12-03T10:15:30+01:00[Europe/Paris]");
     ZonedDateTime dateTime2 = ZonedDateTime.parse("2009-12-03T10:15:30+01:00[Europe/Paris]");
+    room1.setBeds(2);
+    room1.setComment("XD");
     reservation1.setBeds(2);
     reservation1.setComments("none");
     reservation1.setFromDate(dateTime1);
@@ -51,16 +58,17 @@ public class CommandLiner implements CommandLineRunner {
     client1.setFirstName("OO");
     client1.setLastName("LL");
     client1.setPhone("11111111");
-    client1.setOccupations(occSet);
-    client1.setReservations(resSet);
+//    client1.setOccupations(occSet);
+//    client1.setReservations(resSet);
+
+    occupation1.setRoom(room1);
+    reservation1.setClient(client1);
+    occupation1.setClient(client1);
+
     clientService.saveClient(client1);
+//    roomService.saveRoom(room1);
     reservationService.saveReservation(reservation1);
-    Client client2;
-    Address address2;
-
-
-
-//    reservationService.saveReservation()
+    occupationService.saveOccupation(occupation1);
 
   }
 
