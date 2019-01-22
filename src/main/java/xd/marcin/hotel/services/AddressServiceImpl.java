@@ -1,9 +1,11 @@
 package xd.marcin.hotel.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import xd.marcin.hotel.entities.Address;
 import xd.marcin.hotel.repositories.AddressRepository;
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
     @Autowired
