@@ -1,27 +1,53 @@
 package xd.marcin.hotel;
 
-//import com.fasterxml.jackson.databind.DeserializationFeature;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.fasterxml.jackson.databind.SerializationFeature;
-//import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.databind.Module;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-//import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-//import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-//import springfox.documentation.builders.RequestHandlerSelectors;
-//import springfox.documentation.spi.DocumentationType;
-//import springfox.documentation.hotel.web.plugins.Docket;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
-@SpringBootApplication
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @EnableJpaRepositories("xd.marcin.hotel.repositories")
-//@EnableSwagger2
-public class App {
-    public static void main(String[] args) {
+@EnableSwagger2
+public class App extends SpringBootServletInitializer {
 
-        new SpringApplicationBuilder(App.class).web(false).run(args);
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(App.class);
     }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        jsonConverter.setObjectMapper(objectMapper);
+        return jsonConverter;
+    }
+
+    @Bean
+    public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select().apis(RequestHandlerSelectors.basePackage("xd.marcin.hotel.controllers"))
+                .build();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+
 }
+
