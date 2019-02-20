@@ -1,0 +1,4 @@
+<div class="reservation-list">
+  <app-reservation-item *ngFor="let reservation_item of reservations" [reservation]="reservation_item" (removeItem)="removeReservation($event)">
+  </app-reservation-item>
+</div>

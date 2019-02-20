@@ -17,4 +17,8 @@ public interface ReservationService {
     void deleteReservation(Integer id);
 
     List<Reservation> getByLastName(String lastName);
+
+    Boolean checkIfExist(Integer id);
+
+    Iterable<Reservation> listAllReservationsPaging(Integer pageNr, Integer howManyOnPage);
 }

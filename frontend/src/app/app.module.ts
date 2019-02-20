@@ -5,21 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
-import { TodoService } from './service/todo.service';
-import { AddTodoComponent } from './add-todo/add-todo.component';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationItemComponent } from './reservation-item/reservation-item.component';
+import { ReservationService } from './service/reservation.service';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
 
 const ROUTES: Routes = [
-  { path: '', redirectTo: 'todo-list', pathMatch: 'full' },
-  { path: 'todo-list', component: TodoListComponent },
-  { path: 'add-todo', component: AddTodoComponent }
+  { path: '', redirectTo: 'reservation-list', pathMatch: 'full' },
+  { path: 'reservation-list', component: ReservationListComponent },
+  { path: 'add-reservation', component: AddReservationComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, TodoListComponent, TodoItemComponent, AddTodoComponent],
+  declarations: [AppComponent, ReservationListComponent, ReservationItemComponent, AddReservationComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(ROUTES)],
-  providers: [TodoService],
+  providers: [ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

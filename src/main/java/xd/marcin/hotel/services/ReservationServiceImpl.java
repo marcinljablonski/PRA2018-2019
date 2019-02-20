@@ -2,6 +2,7 @@ package xd.marcin.hotel.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
 import xd.marcin.hotel.entities.Reservation;
 import xd.marcin.hotel.repositories.AddressRepository;
 import xd.marcin.hotel.repositories.ClientRepository;
@@ -59,4 +60,16 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationRepository.findsByLastName(lastName);
     }
 
+    @Override
+    public Iterable<Reservation> listAllReservationsPaging(Integer pageNr, Integer howManyOnPage) {
+        return reservationRepository.findAll(new PageRequest(pageNr,howManyOnPage));
+    }
+
+    @Override
+    public Boolean checkIfExist(Integer id) {
+        if (reservationRepository.checkIfExist(id) > 0)
+            return true;
+        else
+            return false;
+    }
 }

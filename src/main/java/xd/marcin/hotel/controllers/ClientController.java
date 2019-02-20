@@ -20,9 +20,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Product controller.
- */
 @RestController
 @RequestMapping("/api")
 public class ClientController {
@@ -31,10 +28,6 @@ public class ClientController {
     private ClientService clientService;
 
 
-    /**
-     * List all products.
-     *
-     */
     @RequestMapping(value = "/clients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Client> list(Model model) {
         return clientService.listAllClients();
@@ -52,29 +45,16 @@ public class ClientController {
         return clientService.listAllClientsPaging(pageNr, howManyOnPage.orElse(2));
     }
 
-
-    /**
-     * View a specific product by its id.
-     *
-     */
     @RequestMapping(value = "/client/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Client getByPublicId(@PathVariable("id") Integer publicId) {
         return clientService.getClientById(publicId);
     }
 
-    /**
-     * View a specific product by its id.
-     *
-     */
     @RequestMapping(value = "/client", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Client getByParamPublicId(@RequestParam("id") Integer publicId) {
         return clientService.getClientById(publicId);
     }
 
-    /**
-     * Save product to database.
-     *
-     */
     @RequestMapping(value = "/client", method = RequestMethod.POST)
     public ResponseEntity<Client> create(@RequestBody @Valid @NotNull Client client) {
         client.setId(Integer.parseInt(UUID.randomUUID().toString()));
@@ -83,10 +63,6 @@ public class ClientController {
     }
 
 
-    /**
-     * Edit product in database.
-     *
-     */
     @RequestMapping(value = "/client", method = RequestMethod.PUT)
     public ResponseEntity<Void> edit(@RequestBody @Valid @NotNull Client client) {
         if(!clientService.checkIfExist(client.getId()))
@@ -97,13 +73,9 @@ public class ClientController {
         }
     }
 
-    /**
-     * Delete product by its id.
-     *
-     */
     @RequestMapping(value = "/client/{id}", method = RequestMethod.DELETE)
     public RedirectView delete(HttpServletResponse response, @PathVariable Integer id) {
         clientService.deleteClient(id);
-        return new RedirectView("/XD", true);
+        return new RedirectView("/index", true);
     }
 }

@@ -38,7 +38,7 @@ public class IndexController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     String index() {
-        return "index";
+        return "cool";
     }
 
 
